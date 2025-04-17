@@ -1,0 +1,298 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*
+  The actual css
+*/
+
+@font-face {
+  font-family: "Roboto";
+  src: url(fonts/Roboto.ttf);
+}
+
+:root {
+  --background: #e2e7f0;
+  --primary: #1992d4;
+  --primary-darker: #167ab0;
+  --bg-yellow: #facc15;
+  ---gap: 12px;
+}
+
+html,
+body {
+  font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  height: 100%;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) 4fr;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+
+.sidebar {
+  grid-row: 1 / 3;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  padding: 16px;
+  gap: 10px;
+  align-content: start;
+  align-items: center;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+
+  svg:first-of-type {
+    min-width: 40px;
+  }
+
+  svg {
+    justify-self: center;
+  }
+
+  p:first-of-type {
+    font-size: x-large;
+  }
+
+  .spacer {
+    height: 20px;
+  }
+}
+
+svg {
+  width: 18px;
+}
+
+.header {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
+  padding-left: 20px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+  z-index: 1;
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(---gap);
+  input {
+    background-color: var(--background);
+    border-radius: 25px;
+    border-style: none;
+  }
+}
+
+.system-bar {
+  display: grid;
+  align-items: center;
+  justify-content: end;
+  grid-template-columns: auto auto auto;
+  gap: var(---gap);
+  p {
+    font-weight: bold;
+    font-size: small;
+    margin-inline: 10px;
+  }
+}
+
+.user-card {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+  gap: var(---gap);
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: var(---gap);
+}
+
+.avatar {
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  &.small {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+  }
+}
+
+.yellow {
+  background-color: var(--bg-yellow);
+}
+
+.pink {
+  background-color: pink;
+}
+
+.grey {
+  background-color: grey;
+}
+
+.light-blue {
+  background-color: lightblue;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  border-radius: 25px;
+  border-style: none;
+  font-weight: bold;
+  font-size: small;
+  padding: 4px;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  background-color: var(--background);
+  gap: 10px;
+  padding: 10px;
+}
+
+#projects {
+  grid-row: 1 / 3;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 20px;
+  gap: 4px;
+  background-color: white;
+  border-radius: 4px;
+  border-left: 6px solid var(--bg-yellow);
+  box-shadow: 1px 2px 2px 1px rgb(0 0 0 / 10%);
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-body {
+  font-weight: 300;
+  font-size: smaller;
+}
+
+.card-actions {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  gap: 20px;
+}
+
+.paper {
+  display: grid;
+  gap: 10px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 1px 2px 2px 1px rgb(0 0 0 / 10%);
+
+  p {
+    font-size: x-small;
+    font-weight: 200;
+  }
+
+  hr {
+    border: none;
+    color: var(--background);
+    border-top: 1px solid var(--background);
+  }
+}
+
+#trending .paper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 15px;
+
+  p:first-of-type {
+    font-weight: bold;
+  }
+}
